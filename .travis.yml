@@ -7,6 +7,9 @@ before_install:
   - go get -u github.com/alecthomas/gometalinter
   - gometalinter --install
 
+install:
+  - go get -t ./src/...
+
 before_script:
   - gometalinter --config=.gometalinter.json --exclude=/go/src/ ./src/junoKvServer/... ./src/junoKvClient/...
 
