@@ -1,0 +1,8 @@
+language: go
+
+go:
+  - 1.8.x
+
+script:
+  - go test junoKvClient -test.v -test.bench . -test.run . -test.benchtime 10s
+  - go test junoKvServer -test.v -test.bench . -test.run . -test.benchtime 10s
