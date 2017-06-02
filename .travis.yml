@@ -8,7 +8,9 @@ before_install:
   - gometalinter --install
 
 install:
-  - go get -t ./src/...
+  - echo $GOPATH
+  - cd ./src/ && go get -v -t ./... && cd ../
+  - cd ./cmd/ && go get -d ./... && cd ../
 
 before_script:
   - gometalinter --config=.gometalinter.json --exclude=/go/src/ ./src/junoKvServer/... ./src/junoKvClient/...
