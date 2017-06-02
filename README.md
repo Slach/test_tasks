@@ -110,3 +110,7 @@ func main() {
     }
 }
 ```
+
+### Badges collection ###
+
+[![Build Status](https://travis-ci.org/Slach/test_tasks.svg?branch=develop)](https://travis-ci.org/Slach/test_tasks)
