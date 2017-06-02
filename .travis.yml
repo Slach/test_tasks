@@ -9,6 +9,9 @@ before_install:
 
 install:
   - echo $GOPATH
+  - echo $GOROOT
+  - go env
+  - pwd
   - cd ./src/ && go get -v -t ./... && cd ../
   - cd ./cmd/ && go get -d ./... && cd ../
 
