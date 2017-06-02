@@ -3,6 +3,17 @@ language: go
 go:
   - 1.8.x
 
+before_install:
+  - go get -u github.com/alecthomas/gometalinter
+  - gometalinter --install
+
+before_script:
+  - gometalinter --config=.gometalinter.json --exclude=/go/src/ ./src/junoKvServer/... ./src/junoKvClient/...
+
 script:
   - go test junoKvClient -test.v -test.bench . -test.run . -test.benchtime 10s
   - go test junoKvServer -test.v -test.bench . -test.run . -test.benchtime 10s
+
+matrix:
+  allow_failures:
+    - go: master
