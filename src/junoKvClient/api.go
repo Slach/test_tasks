@@ -138,14 +138,14 @@ func (c *KVClient) ListRange(key string, from int64, to int64) ([]string, error)
 }
 
 
-/** @todo #1:15m/DEV maybe replace int64 to int16 or int32 ? we need strong defence from out of memory */
+/** @todo #1:15m/DEV maybe replace int64 to int16 or int32 ? we need strong defence from out of memory number 2 */
 // ListSet set value for item in LIST_TYPE key with index offset, return error if key not found or key has wrong type
 func (c *KVClient) ListSet(key string, index int64, value interface{}) (err error) {
 	_, err = c.RunCmd("LSET", key, index, value)
 	return err
 }
 
-/** @todo #1:15m/DEV maybe replace int64 to int16 or int32 ? we need strong defence from out of memory */
+/** @todo #1:15m/DEV maybe replace int64 to int16 or int32 ? we need strong defence from out of memory number 3 */
 // ListDel delete item from LIST_TYPE key by value https://redis.io/commands/lrem for other restrictions
 func (c *KVClient) ListDel(key string, count int64, value interface{}) (err error) {
 	_, err = c.RunCmd("LREM", key, count, value)
